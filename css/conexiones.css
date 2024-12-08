@@ -1,0 +1,71 @@
+@charset "UTF-8";
+body {
+  background-color: #000;
+  color: #f8f9fa;
+}
+
+.hero-section {
+  position: relative;
+  height: 100vh; /* Ocupa toda la altura de la ventana */
+  overflow: hidden;
+}
+
+.image-text-container {
+  position: relative;
+  height: 100%; /* Ocupa todo el contenedor */
+}
+
+.image-text-container img {
+  width: 100%; /* Ajusta al ancho de la pantalla */
+  height: 100%; /* Ajusta al alto de la pantalla */
+  object-fit: cover; /* Asegura que la imagen cubra el área sin deformarse */
+}
+
+.image-text-container .centered-text {
+  position: absolute;
+  top: 50%; /* Centrado vertical */
+  left: 50%; /* Centrado horizontal */
+  transform: translate(-50%, -50%); /* Ajusta el centro */
+  color: #ffffff; /* Texto blanco para contraste */
+  text-align: center; /* Centra el texto */
+  font-family: "JetBrains Mono", monospace; /* Usa la fuente configurada */
+  font-size: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Mejora la visibilidad del texto */
+  background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
+  padding: 1rem; /* Espaciado interno para el texto */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.connection-card {
+  background-color: #1a1a1a;
+  border: 1px solid #333;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.connection-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+h1 {
+  font-family: "Orbitron", sans-serif;
+  color: #ff0000;
+}
+
+h3 {
+  font-family: "JetBrains Mono", monospace;
+  color: #f8f9fa;
+}
+
+.text-secondary {
+  color: #d3d3d3;
+}
+
+.btn-primary {
+  background-color: #244e29;
+  border: none;
+}
+.btn-primary:hover {
+  background-color: rgb(32.4, 70.2, 36.9);
+}
+
+/*# sourceMappingURL=conexiones.css.map */

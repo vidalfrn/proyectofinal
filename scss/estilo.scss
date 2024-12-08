@@ -1,0 +1,262 @@
+@use "sass:color";
+
+$primary-color: #408543;
+$secondary-color: #6c757d;
+$dark-bg: #343a40;
+$text-white: #f8f9fa;
+$hover-color: rgba(110, 66, 193, 0.23); // Violeta translúcido para el hover de la navbar
+$button-color: #244e29; // Rojo para el botón
+// Variables para las fuentes
+$orbitron-font: 'Orbitron', sans-serif;
+$jetbrains-font: 'JetBrains Mono', monospace;
+
+
+body {
+  background-color: $dark-bg;
+  color: $text-white;
+  // Estilo para h1 y h2
+h1, h2 {
+  font-family: $orbitron-font;
+}
+
+// Estilo para h3, h4 y p
+h3, h4, p {
+  font-family: $jetbrains-font;
+}
+}
+
+.navbar-nav {
+  display: flex;
+  // Centra todos los elementos en el eje X
+  gap: 9rem; // Agrega espacio entre cada sección (ajusta el valor según tu preferencia)
+  list-style: none;
+  padding: 0;
+
+  .nav-item {
+    flex: 1; // Mantener espacio igual para cada enlace
+    text-align: center; // Centrar el texto de cada enlace
+    white-space: nowrap; // Evitar que el texto se divida en varias líneas
+  
+    .nav-link {
+      font-family: "Orbitron", sans-serif;
+      color: $text-white;
+      text-decoration: none;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease, transform 0.3s ease;
+  
+      &:hover {
+        color: #00ff00; // Color neón para hover
+        transform: scale(1.1); // Efecto de agrandamiento
+      }
+  
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 50%;
+        width: 0;
+        height: 2px;
+        background-color: #00ff00; // Línea neón
+        transition: width 0.3s ease, left 0.3s ease;
+      }
+  
+      &:hover::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+  
+}
+
+
+  .login-btn {
+    position: absolute; // Permite posicionar el botón fuera del flujo normal
+    right: 2rem; // Ajusta la distancia del margen derecho
+    padding: 0.5rem 1rem;
+    background-color: #36993b; // Color rojo
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: $jetbrains-font;
+    &:hover {
+      background-color: #b21f32; // Color oscurecido manualmente
+    }
+    
+  }
+
+
+
+// Hero Section
+.hero-image {
+  position: relative;
+  width: 100%;
+  height: 100vh; // Toda la altura de la ventana visible
+  overflow: hidden;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; // La imagen cubre el área sin deformarse
+  }
+
+  .hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $text-white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    z-index: 2;
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      background-color: $button-color;
+      color: $text-white;
+      font-size: 1rem;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: color.scale($button-color, $lightness: -10%);
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.8));
+    z-index: 1;
+  }
+}
+
+// Buttons
+.btn-primary {
+  background-color: $button-color;
+  border: none;
+
+  &:hover {
+    background-color: color.scale($button-color, $lightness: -10%);
+  }
+}
+
+// Cards Section
+.card {
+  opacity: 0; // Ocultar inicialmente
+  transform: translateY(50px); // Mover hacia abajo inicialmente
+  transition: opacity 0.8s ease, transform 0.8s ease;
+
+  &.visible {
+    opacity: 1; // Hacer visible
+    transform: translateY(0); // Volver a su posición normal
+  }
+
+  background-color: #333; // Fondo gris oscuro
+  color: $text-white;
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+  }
+
+  .dj-card {
+    background-color: #1a1a1a;
+    padding: 1.5rem;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .dj-image {
+    transition: transform 0.3s ease, filter 0.3s ease;
+
+    &:hover {
+      transform: scale(1.1);
+      filter: brightness(1.2);
+    }
+  }
+
+  .explore-btn {
+    background-color: #521616;
+    color: $text-white;
+    border: none;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+    &:hover {
+      background-color: #b30000;
+    }
+  }
+}
+
+// Titles
+h2 {
+  font-family: "Orbitron", sans-serif;
+  color: $text-white;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+a.btn-primary {
+  display: inline-block;
+  padding: 1rem 2rem;
+  font-size: 1.25rem;
+  color: #fff; // Texto en blanco
+  background-color: #343a40; // Gris oscuro
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #1d2124; // Gris aún más oscuro al hacer hover
+    transform: scale(1.05); // Efecto de agrandamiento al hacer hover
+  }
+}
+
+
+
+
+// Footer
+footer {
+  background-color: $secondary-color;
+}
